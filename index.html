@@ -2,20 +2,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>نتائج التعليم الديني</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>نتائج التعليم الديني</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>التعليم الديني - نتائج الامتحانات</h1>
-        <form id="result-form">
-            <label for="exam-id">أدخل الرقم الامتحاني:</label>
-            <input type="text" id="exam-id" required>
-            <button type="submit">عرض النتيجة</button>
-        </form>
-        <div id="result"></div>
-    </div>
-    <script src="script.js"></script>
+  <div class="container">
+    <h1>نتائج الامتحانات - دائرة التعليم الديني</h1>
+    <input type="text" id="examInput" placeholder="أدخل الرقم الامتحاني">
+    <button onclick="searchResult()">عرض النتيجة</button>
+    <div id="resultContainer"></div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
