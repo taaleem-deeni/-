@@ -3,17 +3,15 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>نتائج الامتحانات - دائرة التعليم الديني</title>
+    <title>نتائج الامتحانات</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>نتائج الامتحانات العامة<br>دائرة التعليم الديني</h2>
-        <input type="text" id="examInput" placeholder="ادخل الرقم الامتحاني">
-        <br>
-        <button onclick="showResult()">عرض النتيجة</button>
-        <div id="error"></div>
-        <iframe id="resultFrame"></iframe>
+        <h1>نتائج الامتحانات العامة - دائرة التعليم الديني</h1>
+        <input type="text" id="examId" placeholder="ادخل الرقم الامتحاني">
+        <button onclick="searchResult()">عرض النتيجة</button>
+        <p id="status"></p>
     </div>
     <script src="script.js"></script>
 </body>

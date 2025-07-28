@@ -1,23 +1,18 @@
 
-let results = [];
+function searchResult() {
+    const examId = document.getElementById("examId").value.trim();
+    if (!examId) {
+        document.getElementById("status").innerText = "يرجى إدخال الرقم الامتحاني.";
+        return;
+    }
 
-fetch('results.json')
-  .then(response => response.json())
-  .then(data => {
-    results = data;
-  });
-
-function showResult() {
-  const input = document.getElementById("examInput").value.trim();
-  const frame = document.getElementById("resultFrame");
-  const error = document.getElementById("error");
-
-  if (results.includes(input)) {
-    frame.src = input + ".html";
-    frame.style.display = "block";
-    error.innerText = "";
-  } else {
-    frame.style.display = "none";
-    error.innerText = "الرقم الامتحاني غير موجود.";
-  }
+    fetch("results.json")
+        .then(response => response.json())
+        .then(data => {
+            if (data[examId]) {
+                window.location.href = examId + ".html";
+            } else {
+                document.getElementById("status").innerText = "الرقم غير موجود. تأكد من إدخاله بشكل صحيح.";
+            }
+        });
 }
