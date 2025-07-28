@@ -1,20 +1,23 @@
 
-const students = [{"exam_id": "3024312118", "name": "1الله ذثع نجً ٍلع يورأ", "grades": {"علوم القرآن": "444", "الفقه": "911", "التفسير": "009", "العقائد": "597", "اللغة العربية": "968", "الخط": "682"}}, {"exam_id": "3024312118", "name": "3ذُثع نظاك ماصع ءازطإ", "grades": {"علوم القرآن": "446", "الفقه": "797", "التفسير": "750", "العقائد": "677", "اللغة العربية": "431", "الخط": "39"}}, {"exam_id": "3024312118", "name": "4ذود باذع ذعط فاُطأ", "grades": {"علوم القرآن": "447", "الفقه": "585", "التفسير": "333", "العقائد": "725", "اللغة العربية": "033", "الخط": "65"}}, {"exam_id": "3024312118", "name": "5ذُجولا ذثع رذُد حازفأ", "grades": {"علوم القرآن": "448", "الفقه": "687", "التفسير": "758", "العقائد": "717", "اللغة العربية": "185", "الخط": "36"}}, {"exam_id": "3024312118", "name": "6فوؤر ٍلع زكت ةٌهآ", "grades": {"علوم القرآن": "449", "الفقه": "595", "التفسير": "541", "العقائد": "505", "اللغة العربية": "030", "الخط": "50"}}, {"exam_id": "3024312118", "name": "7دواد ذُثع ذودأ ةوُهأ", "grades": {"علوم القرآن": "450", "الفقه": "809", "التفسير": "880", "العقائد": "899", "اللغة العربية": "060", "الخط": "715"}}, {"exam_id": "3024312118", "name": "8نُدر ٍكزت يُظد ةَآ", "grades": {"علوم القرآن": "451", "الفقه": "618", "التفسير": "563", "العقائد": "776", "اللغة العربية": "763", "الخط": "604"}}, {"exam_id": "3024312118", "name": "9فلخه ةُطع ضاَر فلاَإ", "grades": {"علوم القرآن": "452", "الفقه": "616", "التفسير": "856", "العقائد": "785", "اللغة العربية": "850", "الخط": "594"}}, {"exam_id": "3024312118", "name": "10فلخ محمد هط كراثت", "grades": {"علوم القرآن": "453", "الفقه": "778", "التفسير": "252", "العقائد": "758", "اللغة العربية": "050", "الخط": "524"}}, {"exam_id": "3024312118", "name": "11ىاىلع فلخ خلاص ةَزُخ", "grades": {"علوم القرآن": "454", "الفقه": "100", "التفسير": "999", "العقائد": "198", "اللغة العربية": "100", "الخط": "889"}}];
+let results = [];
 
-function searchResult() {
-  const examId = document.getElementById("examInput").value.trim();
-  const student = students.find(s => s.exam_id === examId);
-  const container = document.getElementById("resultContainer");
-  container.innerHTML = "";
-  if (!student) {
-    container.innerHTML = "<p>لم يتم العثور على الطالب.</p>";
-    return;
+fetch('results.json')
+  .then(response => response.json())
+  .then(data => {
+    results = data;
+  });
+
+function showResult() {
+  const input = document.getElementById("examInput").value.trim();
+  const frame = document.getElementById("resultFrame");
+  const error = document.getElementById("error");
+
+  if (results.includes(input)) {
+    frame.src = input + ".html";
+    frame.style.display = "block";
+    error.innerText = "";
+  } else {
+    frame.style.display = "none";
+    error.innerText = "الرقم الامتحاني غير موجود.";
   }
-  let html = `<h2>الاسم: ${student.name}</h2>`;
-  html += "<table><tr><th>المادة</th><th>الدرجة</th></tr>";
-  for (const subject in student.grades) {
-    html += `<tr><td>${subject}</td><td>${student.grades[subject]}</td></tr>`;
-  }
-  html += "</table>";
-  container.innerHTML = html;
 }

@@ -2,17 +2,19 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>نتائج التعليم الديني</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>نتائج الامتحانات - دائرة التعليم الديني</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>نتائج الامتحانات - دائرة التعليم الديني</h1>
-    <input type="text" id="examInput" placeholder="أدخل الرقم الامتحاني">
-    <button onclick="searchResult()">عرض النتيجة</button>
-    <div id="resultContainer"></div>
-  </div>
-  <script src="script.js"></script>
+    <div class="container">
+        <h2>نتائج الامتحانات العامة<br>دائرة التعليم الديني</h2>
+        <input type="text" id="examInput" placeholder="ادخل الرقم الامتحاني">
+        <br>
+        <button onclick="showResult()">عرض النتيجة</button>
+        <div id="error"></div>
+        <iframe id="resultFrame"></iframe>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
